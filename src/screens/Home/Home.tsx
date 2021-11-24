@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View, Button } from "react-native";
+import { getPokemons } from "../../services/pokemon.services";
 import { IHomeProps } from "../../types/interfaces";
 
 const Home = ({ navigation }: IHomeProps) => {
+
+    getPokemons();
 
     const handleDetails = (): void => {
         navigation.navigate("Details");
