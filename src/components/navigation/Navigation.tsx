@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../../screens/Home/Home"
-import PokemonDetails from "../PokemonDetails/PokemonDetails";
+import PokemonDetails from "../../screens/PokemonDetails/PokemonDetails";
 
 const Navigation = () => {
 
@@ -12,9 +12,9 @@ const Navigation = () => {
         <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-            headerShown: false,
+            headerShown: true,
         }}>
-            <Stack.Screen name="Home" component={Home}></Stack.Screen>
+            <Stack.Screen name="Your Pokedex" component={Home}></Stack.Screen>
             <Stack.Screen name="PokemonDetails" component={PokemonDetails}></Stack.Screen>
         </Stack.Navigator>
     )

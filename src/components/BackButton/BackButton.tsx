@@ -8,8 +8,8 @@ export default function BackButton({ OnPress }: IBackButtonProps) {
     return (
         <View>
             <Pressable style={styles.button} onPress={OnPress}>
-            <Text style={styles.text}>Back</Text>
+                <Text style={styles.text}>Back</Text>
             </Pressable>
-            </View>
+        </View>
     )
 }
