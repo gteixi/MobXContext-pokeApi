@@ -26,6 +26,7 @@ export interface IPokemon {
     id: string;
     height: number;
     weight: number;
+    sprites: string
 }
 
 export interface IPokemonsData {
@@ -49,3 +50,6 @@ export interface IPokemonListProps {
     handleDetails: (pokemonURL: string) => void;
 }
 
+export interface IBackButtonProps {
+    OnPress: () => void
+}

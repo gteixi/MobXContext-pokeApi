@@ -26,7 +26,7 @@ const Home = observer (({ navigation }: IHomeProps) => {
             <Text> This is Home </Text>
             <FlatList 
             data={pokemons} 
-            renderItem={renderList} />
+            renderItem={renderList}/>
         </View>
     )
 })

@@ -6,7 +6,6 @@ import { IPokemonListProps } from "../../types/interfaces"
 export default function PokemonList({ pokemon, handleDetails }: IPokemonListProps) {
 
     const { name, url } = pokemon;
-    console.log(url);
 
     return (
         <TouchableOpacity
