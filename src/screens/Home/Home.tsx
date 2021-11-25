@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
-import { Text, View} from "react-native"
+import { Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
 import PokemonList from "../../components/PokemonList/PokemonList"
 import useStore from "../../hooks/useStore"
-import { IHomeProps, IPokemonsProps} from "../../types/interfaces"
+import { IHomeProps, IPokemonsProps } from "../../types/interfaces"
 
 const Home = observer (({ navigation }: IHomeProps) => {
 
@@ -15,8 +15,8 @@ const Home = observer (({ navigation }: IHomeProps) => {
         PokemonStore.fetchPokemons();
     },[])
 
-    const handleDetails = (): void => {
-        navigation.navigate("Details");
+    const handleDetails = (pokemonURL: string): void => {
+        navigation.push("PokemonDetails", { pokemonURL });
     }
 
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
@@ -26,7 +26,7 @@ const Home = observer (({ navigation }: IHomeProps) => {
             <Text> This is Home </Text>
             <FlatList 
             data={pokemons} 
-            renderItem={renderList} />
+            renderItem={renderList}/>
         </View>
     )
 })

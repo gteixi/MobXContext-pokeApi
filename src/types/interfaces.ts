@@ -1,5 +1,19 @@
 interface INavigation {
-    navigate: (path: string) => void;
+    push: (path: string, params: IParams) => void;
+    pop: () => void;
+}
+
+interface IParams {
+    pokemonURL: string;
+}
+
+interface IRoute {
+    params: IParams;
+}
+
+export interface IPokemonDetailsProp {
+    route: IRoute;
+    navigation: INavigation;
 }
 
 export interface IHomeProps {
@@ -9,7 +23,10 @@ export interface IHomeProps {
 export interface IPokemon {
     name: string;
     url: string;
-    _id: string;
+    id: string;
+    height: number;
+    weight: number;
+    sprites: string
 }
 
 export interface IPokemonsData {
@@ -20,10 +37,19 @@ export interface IAxiosPokemonsData {
     data: IPokemonsData;
 }
 
+export interface IAxiosPokemonDetailsData {
+    data: IPokemon;
+}
+
 export interface IPokemonsProps {
-    item: IPokemon[];
+    item: IPokemon;
 }
 
 export interface IPokemonListProps {
     pokemon: IPokemon;
+    handleDetails: (pokemonURL: string) => void;
+}
+
+export interface IBackButtonProps {
+    OnPress: () => void
 }
