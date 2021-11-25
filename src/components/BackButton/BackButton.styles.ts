@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     button: {
-      marginTop: 30,
+      marginTop: 15,
       marginLeft: 80,
       marginRight: 80,
       alignItems: 'center',
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     text: {
       fontSize: 16,
       lineHeight: 21,
-      fontWeight: 'bold',
       letterSpacing: 0.25,
       color: 'white',
     },
