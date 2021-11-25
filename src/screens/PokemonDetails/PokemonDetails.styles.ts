@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         color: 'black',
         },
+
 });
 
 export default styles;

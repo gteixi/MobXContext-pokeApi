@@ -6,7 +6,7 @@ import styles from "./BackButton.styles"
 
 export default function BackButton({ OnPress }: IBackButtonProps) {
     return (
-        <View>
+        <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={OnPress}>
                 <Text style={styles.text}>Back</Text>
             </Pressable>
