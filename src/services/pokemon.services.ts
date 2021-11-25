@@ -1,6 +1,6 @@
 import axios from "axios"
 import API from "./../constants/API"
-import { IAxiosPokemonsData, IPokemon } from "../types/interfaces"
+import { IAxiosPokemonDetailsData, IAxiosPokemonsData, IPokemon } from "../types/interfaces"
 
 export async function getPokemons(): Promise<IPokemon[]> {
     try {
@@ -11,5 +11,14 @@ export async function getPokemons(): Promise<IPokemon[]> {
     } catch (error) {
         throw 404;
     }
+}
 
+export async function getPokemonDetails(pokemonURL: string): Promise<IPokemon | null> {
+    try {
+        const { data: pokemon }: IAxiosPokemonDetailsData = await axios.get(pokemonURL);
+        return pokemon || null;
+
+    } catch (error) {
+        throw 404;
+    }
 }

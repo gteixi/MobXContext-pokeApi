@@ -1,14 +1,20 @@
 import React from "react"
-import { Text, View } from "react-native"
+import { Text } from "react-native"
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { IPokemonListProps } from "../../types/interfaces"
 
-export default function PokemonList({ pokemon }: IPokemonListProps) {
+export default function PokemonList({ pokemon, handleDetails }: IPokemonListProps) {
 
-    const { name } = pokemon;
+    const { name, url } = pokemon;
+    console.log(url);
 
     return (
-        <View>
-            <Text>{name}</Text>
-        </View>
+        <TouchableOpacity
+        accessible={true}
+        accessibilityLabel={name}
+        accessibilityRole="button"
+        onPress={() => handleDetails(url)}>
+        <Text>{name}</Text>
+        </TouchableOpacity>
     )
 }
