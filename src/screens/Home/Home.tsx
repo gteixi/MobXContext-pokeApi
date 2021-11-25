@@ -1,22 +1,34 @@
-import React, { useEffect } from "react";
-import { Text, View, Button } from "react-native";
-import { getPokemons } from "../../services/pokemon.services";
-import { IHomeProps } from "../../types/interfaces";
+import { observer } from "mobx-react-lite"
+import React, { useEffect } from "react"
+import { Text, View} from "react-native"
+import { FlatList } from "react-native-gesture-handler"
+import PokemonList from "../../components/PokemonList/PokemonList"
+import useStore from "../../hooks/useStore"
+import { IHomeProps, IPokemonsProps} from "../../types/interfaces"
 
-const Home = ({ navigation }: IHomeProps) => {
+const Home = observer (({ navigation }: IHomeProps) => {
 
-    getPokemons();
+    const { PokemonStore } = useStore();
+    const { pokemons } = PokemonStore;
+
+    useEffect(() => {
+        PokemonStore.fetchPokemons();
+    },[])
 
     const handleDetails = (): void => {
         navigation.navigate("Details");
     }
 
+    const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
+
     return (
         <View>
             <Text> This is Home </Text>
-            <Button title="Go To Details" onPress={() => handleDetails()}></Button>
+            <FlatList 
+            data={pokemons} 
+            renderItem={renderList} />
         </View>
     )
-}
+})
 
 export default Home; 

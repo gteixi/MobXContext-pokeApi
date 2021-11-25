@@ -9,6 +9,7 @@ export interface IHomeProps {
 export interface IPokemon {
     name: string;
     url: string;
+    _id: string;
 }
 
 export interface IPokemonsData {
@@ -17,4 +18,12 @@ export interface IPokemonsData {
 
 export interface IAxiosPokemonsData {
     data: IPokemonsData;
+}
+
+export interface IPokemonsProps {
+    item: IPokemon[];
+}
+
+export interface IPokemonListProps {
+    pokemon: IPokemon;
 }
