@@ -3,6 +3,10 @@ interface INavigation {
     pop: () => void;
 }
 
+interface INavigationNextPokemons {
+    push: (path: string) => void;
+}
+
 interface IParams {
     pokemonURL: string;
 }
@@ -20,6 +24,10 @@ export interface IHomeProps {
     navigation: INavigation;
 }
 
+export interface INextPokemonsProps {
+    navigation: INavigation;
+}
+
 export interface IPokemon {
     name: string;
     url: string;
@@ -32,12 +40,31 @@ export interface IPokemon {
     }
 }
 
+export interface INextPokemon {
+    next: string,
+    results: [ 
+        name: string,
+        url: string,
+        id: string,
+        height: number,
+        weight: number,
+        sprites: {
+        front_default: string,
+        back_default: string,
+        }
+    ]
+}
+
 export interface IPokemonsData {
     data: IPokemon[];
 }
 
 export interface IAxiosPokemonsData {
     data: IPokemonsData;
+}
+
+export interface IAxiosNextPokemonsData {
+    data: INextPokemon;
 }
 
 export interface IAxiosPokemonDetailsData {

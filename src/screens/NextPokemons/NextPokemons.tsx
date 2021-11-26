@@ -7,18 +7,26 @@ import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
-import { IHomeProps, IPokemonsProps } from "../../types/interfaces"
+import { INextPokemonsProps, IPokemonsProps } from "../../types/interfaces"
 
-import styles from "./Home.styles"
+import styles from "./NextPokemons.styles"
 
-const Home = observer (({ navigation }: IHomeProps) => {
+const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
 
     const { PokemonStore } = useStore();
-    const { pokemons } = PokemonStore;
+    const { nextPokemons } = PokemonStore;
+
+    const link = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
+    let next = 0;
+    let nextLink = nextPokemons?.next;
 
     useEffect(() => {
-        PokemonStore.fetchPokemons();
+        PokemonStore.fetchNextPokemons(link);
     },[])
+
+    useEffect(() => {
+        PokemonStore.fetchNextPokemons(nextLink);
+    },[next])
 
     const handleDetails = (pokemonURL: string): void => {
         navigation.push("PokemonDetails", { pokemonURL });
@@ -26,7 +34,9 @@ const Home = observer (({ navigation }: IHomeProps) => {
 
     const handleNextPage = (): void => {
         navigation.navigate("NextPokemons");
+        next =+ 1;
     }
+
 
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
@@ -34,7 +44,7 @@ const Home = observer (({ navigation }: IHomeProps) => {
         <SafeAreaView style={AppStyles.screen.mainScreen}>
             <View style={styles.homeContainer}>
                 <FlatList
-                data={pokemons} 
+                data={nextPokemons?.results} 
                 renderItem={renderList}/>
                 <NextPageButton OnPress={handleNextPage}/>
             </View>
@@ -42,4 +52,4 @@ const Home = observer (({ navigation }: IHomeProps) => {
     )
 })
 
-export default Home; 
+export default NextPokemons;
