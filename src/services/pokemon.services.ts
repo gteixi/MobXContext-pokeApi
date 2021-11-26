@@ -13,7 +13,6 @@ export async function getPokemons(): Promise<IPokemon[]> {
 
 export async function getNextPokemons(pokemonNext: string): Promise<INextPokemon> {
     try {
-        console.log(`this is the link that comes from Home ${pokemonNext}`);
         const { data }: IAxiosNextPokemonsData = await axios.get(pokemonNext);
         console.log(data);
         return data;

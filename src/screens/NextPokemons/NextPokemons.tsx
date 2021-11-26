@@ -7,7 +7,7 @@ import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
-import { INextPokemonsProps, IPokemonsProps } from "../../types/interfaces"
+import { INextPokemonsProps } from "../../types/interfaces"
 
 import styles from "./NextPokemons.styles"
 
@@ -33,10 +33,9 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
     }
 
     const handleNextPage = (): void => {
-        navigation.navigate("NextPokemons");
+        navigation.push("NextPokemons");
         next =+ 1;
     }
-
 
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
