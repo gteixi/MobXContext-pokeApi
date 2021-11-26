@@ -1,12 +1,10 @@
 import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
-import { Pressable, Text, View } from "react-native"
+import { Pressable, Text, View, ImageBackground } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
 import useStore from "../../hooks/useStore"
-import AppStyles from "../../theme/AppStyles"
 import { IHomeProps, IPokemonsProps } from "../../types/interfaces"
 
 import styles from "./Home.styles"
@@ -35,7 +33,7 @@ const Home = observer (({ navigation }: IHomeProps) => {
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
     return (
-        <SafeAreaView style={AppStyles.screen.mainScreen}>
+        <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
             <View style={styles.homeContainer}>
                 <FlatList
                 data={pokemons} 
@@ -49,7 +47,7 @@ const Home = observer (({ navigation }: IHomeProps) => {
                     <NextPageButton OnPress={handleNextPage}/>
                 </View>
             </View>
-        </SafeAreaView>
+        </ImageBackground>
     )
 })
 
