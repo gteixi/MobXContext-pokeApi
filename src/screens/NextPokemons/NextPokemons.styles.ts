@@ -12,7 +12,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       flexDirection: 'row',
       marginTop: 50,
-    }
+    },
+    image: {
+      flex: 1,
+      justifyContent: "center"
+    },
 });
 
 export default styles;

@@ -1,3 +1,3 @@
-const PokemonBackground = { uri: "https://www.pixelstalk.net/wp-content/uploads/2016/06/Pikachu-wallpaper-HD-for-desktop.png" }
+const pokemonBackground = "https://www.wallpaperwolf.com/wallpapers/wallpapers-for-phones/hd/download/pokemon-cartoon-0484.png";
 
-export default { PokemonBackground };
+export default { pokemonBackground };

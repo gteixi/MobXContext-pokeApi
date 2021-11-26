@@ -8,11 +8,13 @@ const styles = StyleSheet.create({
     },
 
     title: {
-    fontSize: 16,
-    lineHeight: 21,
+    fontSize: 20,
+    lineHeight: 35,
     fontWeight: 'bold',
     letterSpacing: 8,
-    color: 'red',
+    color: 'black',
+    backgroundColor: "white",
+    borderRadius: 4,
     },
 
     infoText: {
@@ -23,9 +25,30 @@ const styles = StyleSheet.create({
     color: 'black',
     },
 
+    imageContainer: {
+      paddingTop: 30
+    },
+
     imageSize: {
-    width: 250, 
-    height: 250
+    width: 200, 
+    height: 200
+    },
+
+    image: {
+      flex: 1,
+      justifyContent: "center"
+      },
+
+    imageFrontContainer: {
+      backgroundColor: "black",
+      borderRadius: 400,
+    },
+
+    imageBackContainer: {
+      marginTop: 30,
+      backgroundColor: "black",
+      borderRadius: 400,
+      marginBottom: 30
     }
 
 });

@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     homeContainer: {
+      paddingTop: 40,
     alignItems: 'center',
     justifyContent: 'center',
     },
@@ -55,6 +56,10 @@ const styles = StyleSheet.create({
           borderRadius: 4,
           backgroundColor: 'blue',
           flex: 1,
+        },
+        image: {
+          flex: 1,
+          justifyContent: "center"
         },
 });
 
