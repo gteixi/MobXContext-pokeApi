@@ -7,11 +7,11 @@ import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
-import { IHomeProps, IPokemonsProps } from "../../types/interfaces"
+import { INextPokemonsProps, IPokemonsProps } from "../../types/interfaces"
 
 import styles from "./NextPokemons.styles"
 
-const NextPokemons = observer (({ navigation }: IHomeProps) => {
+const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
 
     const { PokemonStore } = useStore();
     const { nextPokemons } = PokemonStore;
@@ -33,7 +33,7 @@ const NextPokemons = observer (({ navigation }: IHomeProps) => {
     }
 
     const handleNextPage = (): void => {
-        navigation.push("NextPokemons",);
+        navigation.navigate("NextPokemons");
         next =+ 1;
     }
 

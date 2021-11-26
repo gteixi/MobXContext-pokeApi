@@ -1,7 +1,10 @@
 interface INavigation {
     push: (path: string, params: IParams) => void;
     pop: () => void;
-    navigate: string,
+}
+
+interface INavigationNextPokemons {
+    push: (path: string) => void;
 }
 
 interface IParams {
@@ -18,6 +21,10 @@ export interface IPokemonDetailsProp {
 }
 
 export interface IHomeProps {
+    navigation: INavigation;
+}
+
+export interface INextPokemonsProps {
     navigation: INavigation;
 }
 
