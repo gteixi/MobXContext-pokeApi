@@ -5,6 +5,7 @@ import { FlatList } from "react-native-gesture-handler"
 import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
+import PreviousPageButton from "../../components/PreviousPageButton/PreviousPageButton"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
 import { INextPokemonsProps } from "../../types/interfaces"
@@ -37,6 +38,11 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
         next =+ 1;
     }
 
+    const handlePreviousPage = (): void => {
+        navigation.push("NextPokemons");
+        next =+ 1;
+    }
+
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
     return (
@@ -45,7 +51,10 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
                 <FlatList
                 data={nextPokemons?.results} 
                 renderItem={renderList}/>
-                <NextPageButton OnPress={handleNextPage}/>
+                    <View style={styles.pagination}>
+                        <PreviousPageButton OnPress={handlePreviousPage}/>
+                        <NextPageButton OnPress={handleNextPage}/>
+                    </View>
             </View>
         </SafeAreaView>
     )

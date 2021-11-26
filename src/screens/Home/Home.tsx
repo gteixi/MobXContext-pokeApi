@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
-import { View } from "react-native"
+import { Pressable, Text, View } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
 import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
@@ -28,6 +28,10 @@ const Home = observer (({ navigation }: IHomeProps) => {
         navigation.navigate("NextPokemons");
     }
 
+    const handlePokemonsNotFound = (): void => {
+        navigation.navigate("PokemonsNotFound");
+    }
+
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
     return (
@@ -36,7 +40,14 @@ const Home = observer (({ navigation }: IHomeProps) => {
                 <FlatList
                 data={pokemons} 
                 renderItem={renderList}/>
-                <NextPageButton OnPress={handleNextPage}/>
+            </View>
+                <View style={styles.pagination}>
+                    <View style={styles.buttonContainer}>
+                        <Pressable style={styles.buttonBack} onPress={() => handlePokemonsNotFound()}>
+                            <Text style={styles.text}> {"No Previous"} </Text>
+                        </Pressable>
+                    <NextPageButton OnPress={handleNextPage}/>
+                </View>
             </View>
         </SafeAreaView>
     )
