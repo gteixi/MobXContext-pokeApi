@@ -8,7 +8,7 @@ import PokemonList from "../../components/PokemonList/PokemonList"
 import PreviousPageButton from "../../components/PreviousPageButton/PreviousPageButton"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
-import { INextPokemonsProps } from "../../types/interfaces"
+import { INextPokemonsProps, IPokemonsProps } from "../../types/interfaces"
 
 import styles from "./NextPokemons.styles"
 
@@ -19,7 +19,7 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
 
     const link = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
     let next = 0;
-    let nextLink = nextPokemons?.next;
+    const nextLink = nextPokemons?.next;
 
     useEffect(() => {
         PokemonStore.fetchNextPokemons(link);
