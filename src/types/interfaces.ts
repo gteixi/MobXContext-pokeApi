@@ -25,6 +25,14 @@ export interface INextPokemonsProps {
     item: IPokemon;
 }
 
+export interface INextPageButtonProps {
+    OnPress: () => void
+}
+
+export interface IPreviousPageButtonProps {
+    OnPress: () => void
+}
+
 export interface IPokemon {
     name: string;
     url: string;
