@@ -26,8 +26,8 @@ const PokemonDetails = observer(({ navigation, route: { params: { pokemonURL }}}
         <>
         <View style={styles.detailsContainer}>
             <Text style={styles.title}>{pokemon?.name}</Text>
-            <Image source={{ uri: pokemon?.sprites?.front_default }} style={{width: 250, height: 250}} />
-            <Image source={{ uri: pokemon?.sprites?.back_default }} style={{width: 250, height: 250}} />
+            <Image source={{ uri: pokemon?.sprites?.front_default }} style={styles.imageSize} />
+            <Image source={{ uri: pokemon?.sprites?.back_default }} style={styles.imageSize} />
             <Text style={styles.infoText}>Pokemon Height: {pokemon?.height}</Text>
             <Text style={styles.infoText}>Pokemon Weight: {pokemon?.weight}</Text>
         </View>

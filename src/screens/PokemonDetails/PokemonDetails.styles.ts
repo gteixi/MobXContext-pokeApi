@@ -16,12 +16,17 @@ const styles = StyleSheet.create({
     },
 
     infoText: {
-        fontSize: 16,
-        lineHeight: 21,
-        fontStyle: "italic",
-        letterSpacing: 0.5,
-        color: 'black',
-        },
+    fontSize: 16,
+    lineHeight: 21,
+    fontStyle: "italic",
+    letterSpacing: 0.5,
+    color: 'black',
+    },
+
+    imageSize: {
+    width: 250, 
+    height: 250
+    }
 
 });
 

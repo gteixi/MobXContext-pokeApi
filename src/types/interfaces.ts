@@ -26,7 +26,10 @@ export interface IPokemon {
     id: string;
     height: number;
     weight: number;
-    sprites: string
+    sprites: {
+    front_default: string,
+    back_default: string,
+    }
 }
 
 export interface IPokemonsData {
