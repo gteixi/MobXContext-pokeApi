@@ -1,3 +1,7 @@
+
+// REVIEW: try to use interfaces from react-navigation instead or rewriting your own interfaces or you'll need to rewrite all the functions definitions (for example, you'll need to rewrite navigate and goBack)...
+// also try to keep your interfaces separated for domain. This is a good practice to keep your code clean and easy to read.
+
 interface INavigation {
     push: (path: string, params: IParams) => void;
     pop: () => void;
@@ -45,19 +49,11 @@ export interface IPokemon {
     }
 }
 
+// REVIEW: you can reuse the definition of IPokemon from the previous interface
+// REVIEW2: probably this is a bad name, is not a pokemon, is a list of pokemons
 export interface INextPokemon {
     next: string,
-    results: [ 
-        name: string,
-        url: string,
-        id: string,
-        height: number,
-        weight: number,
-        sprites: {
-        front_default: string,
-        back_default: string,
-        }
-    ]
+    results: IPokemon[],
 }
 
 export interface IPokemonsData {

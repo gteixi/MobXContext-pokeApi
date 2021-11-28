@@ -1,7 +1,8 @@
 import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
-import { ImageBackground, View } from "react-native"
-import { FlatList } from "react-native-gesture-handler"
+import { FlatList, ImageBackground, View } from "react-native"
+
+// REVIEW: missing import "react-native-gesture-handler" the app crashes
 import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonList from "../../components/PokemonList/PokemonList"
@@ -33,6 +34,12 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
         navigation.push("PokemonDetails", { pokemonURL });
     }
 
+    // REVIEW: this is the typical situation in which you'll use a store so you can track
+    // the current page and the next one.
+    // Also probably I don't like this solution because it you move forward and back, 
+    // definitely you're loosing the state (just try to go forward, 
+    // press back and go forward again, you'll see that you're in the third page 
+    // when you're expecting to be in the second one)
     const handleNextPage = (): void => {
         navigation.push("NextPokemons");
         next =+ 1;
@@ -45,7 +52,9 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
 
     const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
 
+    // REVIEW the ImageBackground is exactly the same as the one in Home.tsx, why don't create a common component?
     return (
+       
         <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
             <View style={styles.homeContainer}>
                 <FlatList
