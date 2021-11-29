@@ -5,7 +5,7 @@ import { FlatList, ImageBackground, View } from "react-native"
 // REVIEW: missing import "react-native-gesture-handler" the app crashes
 import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
-import PokemonList from "../../components/PokemonList/PokemonList"
+import PokemonItem from "../../components/PokemonItem/PokemonItem"
 import PreviousPageButton from "../../components/PreviousPageButton/PreviousPageButton"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
@@ -50,7 +50,7 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
         next =+ 1;
     }
 
-    const renderList = ({ item }: IPokemonsProps) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
+    const renderList = ({ item }: IPokemonsProps) => (<PokemonItem pokemon={item} handleDetails={handleDetails}/>)
 
     // REVIEW the ImageBackground is exactly the same as the one in Home.tsx, why don't create a common component?
     return (

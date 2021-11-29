@@ -6,7 +6,7 @@ import { Pressable, Text, View, ImageBackground, FlatList } from "react-native"
 // REVIEW: missing import "react-native-gesture-handler" the app crashes
 
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
-import PokemonList from "../../components/PokemonList/PokemonList"
+import PokemonItem from "../../components/PokemonItem/PokemonItem"
 import useStore from "../../hooks/useStore"
 import { IHomeProps, IPokemon, IPokemonsProps } from "../../types/interfaces"
 
@@ -40,14 +40,14 @@ const Home = observer (({ navigation }: IHomeProps) => {
 
     // REVIEW: add a type only for the entity object, you don't need to create another interface for the whole params object, we are expecting a pokemon, we don't need to specify that for a list item there is a destructured object with other params
 
-    const renderList = ({ item }: {item : IPokemon}) => (<PokemonList pokemon={item} handleDetails={handleDetails}/>)
+    const renderItem = ({ item }: {item : IPokemon}) => (<PokemonItem pokemon={item} handleDetails={handleDetails}/>)
 
     return (
         <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
             <View style={styles.homeContainer}>
                 <FlatList
                 data={pokemons} 
-                renderItem={renderList}/>
+                renderItem={renderItem}/>
             </View>
                 <View style={styles.pagination}>
                     <View style={styles.buttonContainer}>

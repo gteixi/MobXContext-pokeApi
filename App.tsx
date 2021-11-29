@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Navigation from "./src/components/navigation/Navigation";
+import Navigation from "./src/navigation/Navigation";
 
 import StoreContextProvider from "./src/contexts/StoreContextProvider";
 import store from "./src/mobx/index"

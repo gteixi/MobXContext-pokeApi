@@ -76,7 +76,7 @@ export interface IPokemonsProps {
     item: IPokemon;
 }
 
-export interface IPokemonListProps {
+export interface IPokemonItemProps {
     pokemon: IPokemon;
     handleDetails: (pokemonURL: string) => void;
 }
