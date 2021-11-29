@@ -29,21 +29,23 @@ const Home = observer (({ navigation }: IHomeProps) => {
 
     const handleNextPage = (): void => {
 
-        // REVIEW: why we are navigating to another screen? 
+        // REVIEW: why we are navigating to another screen? -> DONE
         navigation.push("NextPokemons");
     }
 
     const handlePokemonsNotFound = (): void => {
-        // REVIEW: typescript will complain about missing definition of navigate, because you rewrote the interface, you could import the original one from react-navigation
+        // REVIEW: typescript will complain about missing definition of navigate, because you rewrote the interface, you could import the original one from react-navigation -> DONE
         navigation.navigate("PokemonsNotFound");
     }
 
     // REVIEW: add a type only for the entity object, you don't need to create another interface for the whole params object, we are expecting a pokemon, we don't need to specify that for a list item there is a destructured object with other params
 
-    const renderItem = ({ item }: {item : IPokemon}) => (<PokemonItem pokemon={item} handleDetails={handleDetails}/>)
+    const renderItem = ({ item }: {item : IPokemon}) => (<PokemonItem pokemon={item} handleDetails={handleDetails}/>)      
 
+    const backgroundImage = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1";
+   
     return (
-        <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={{ uri: backgroundImage }} resizeMode="cover" style={styles.image}>
             <View style={styles.homeContainer}>
                 <FlatList
                 data={pokemons} 

@@ -2,11 +2,12 @@ import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
 import { FlatList, ImageBackground, View } from "react-native"
 
-// REVIEW: missing import "react-native-gesture-handler" the app crashes
+// REVIEW: missing import "react-native-gesture-handler" the app crashes -> DONE
 import { SafeAreaView } from "react-native-safe-area-context"
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonItem from "../../components/PokemonItem/PokemonItem"
 import PreviousPageButton from "../../components/PreviousPageButton/PreviousPageButton"
+import pokemonBackground from "../../constants/pokemonBackground"
 import useStore from "../../hooks/useStore"
 import AppStyles from "../../theme/AppStyles"
 import { INextPokemonsProps, IPokemonsProps } from "../../types/interfaces"
@@ -52,10 +53,12 @@ const NextPokemons = observer (({ navigation }: INextPokemonsProps) => {
 
     const renderList = ({ item }: IPokemonsProps) => (<PokemonItem pokemon={item} handleDetails={handleDetails}/>)
 
-    // REVIEW the ImageBackground is exactly the same as the one in Home.tsx, why don't create a common component?
+    const backgroundImage = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1";
+
+    // REVIEW the ImageBackground is exactly the same as the one in Home.tsx, why don't create a common component? -> DONE
     return (
        
-        <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={{ uri: backgroundImage }} resizeMode="cover" style={styles.image}>
             <View style={styles.homeContainer}>
                 <FlatList
                 data={nextPokemons?.results} 

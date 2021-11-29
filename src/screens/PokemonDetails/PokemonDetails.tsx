@@ -21,10 +21,12 @@ const PokemonDetails = observer(({ navigation, route: { params: { pokemonURL }}}
     const handleBackButton = () => {
         navigation.pop();
     }
+
+    const backgroundImageDetails = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1"
     
 
     return (
-        <ImageBackground source={{ uri: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.EGDFQzgSuJAPLNw46oFf_QHaNK%26pid%3DApi&f=1" }} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={{ uri: backgroundImageDetails}} resizeMode="cover" style={styles.image}>
         <View style={styles.detailsContainer}>
             <Text style={styles.title}>{pokemon?.name}</Text>
                 <View style={styles.imageContainer}>

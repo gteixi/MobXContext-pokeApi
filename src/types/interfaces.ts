@@ -1,5 +1,5 @@
 import { NavigationStackProp } from "react-navigation-stack";
-// REVIEW: try to use interfaces from react-navigation instead or rewriting your own interfaces or you'll need to rewrite all the functions definitions (for example, you'll need to rewrite navigate and goBack)...
+// REVIEW: try to use interfaces from react-navigation instead or rewriting your own interfaces or you'll need to rewrite all the functions definitions (for example, you'll need to rewrite navigate and goBack)... -> DONE
 // also try to keep your interfaces separated for domain. This is a good practice to keep your code clean and easy to read.
 
 interface IParams {
@@ -44,9 +44,9 @@ export interface IPokemon {
     }
 }
 
-// REVIEW: you can reuse the definition of IPokemon from the previous interface
-// REVIEW2: probably this is a bad name, is not a pokemon, is a list of pokemons
-export interface INextPokemon {
+// REVIEW: you can reuse the definition of IPokemon from the previous interface -> DONE
+// REVIEW2: probably this is a bad name, is not a pokemon, is a list of pokemons -> DONE
+export interface IListPokemon {
     next: string,
     results: IPokemon[],
 }
@@ -60,7 +60,7 @@ export interface IAxiosPokemonsData {
 }
 
 export interface IAxiosNextPokemonsData {
-    data: INextPokemon;
+    data: IListPokemon;
 }
 
 export interface IAxiosPokemonDetailsData {
