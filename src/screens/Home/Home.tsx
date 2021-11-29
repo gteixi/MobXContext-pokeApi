@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite"
 import React, { useEffect } from "react"
 import { Pressable, Text, View, ImageBackground, FlatList } from "react-native"
-//import { FlatList } from "react-native-gesture-handler"
+//import { FlatList } from "react-native-gesture-handler" -> DONE
 
-// REVIEW: missing import "react-native-gesture-handler" the app crashes
+// REVIEW: missing import "react-native-gesture-handler" the app crashes -> DONE
 
 import NextPageButton from "../../components/NextPageButton/NextPageButton"
 import PokemonItem from "../../components/PokemonItem/PokemonItem"
@@ -23,14 +23,14 @@ const Home = observer (({ navigation }: IHomeProps) => {
 
     const handleDetails = (pokemonURL: string): void => {
 
-        // REVIEW: why you're using push instead of navigate? what's the difference?
+        // REVIEW: why you're using push instead of navigate? what's the difference? -> DONE (.push creates a new screen/route and .navigate just renders an existing screen already in memory)
         navigation.push("PokemonDetails", { pokemonURL });
     }
 
     const handleNextPage = (): void => {
 
         // REVIEW: why we are navigating to another screen? 
-        navigation.navigate("NextPokemons");
+        navigation.push("NextPokemons");
     }
 
     const handlePokemonsNotFound = (): void => {

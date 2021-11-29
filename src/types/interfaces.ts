@@ -1,11 +1,6 @@
-
+import { NavigationStackProp } from "react-navigation-stack";
 // REVIEW: try to use interfaces from react-navigation instead or rewriting your own interfaces or you'll need to rewrite all the functions definitions (for example, you'll need to rewrite navigate and goBack)...
 // also try to keep your interfaces separated for domain. This is a good practice to keep your code clean and easy to read.
-
-interface INavigation {
-    push: (path: string, params: IParams) => void;
-    pop: () => void;
-}
 
 interface IParams {
     pokemonURL: string;
@@ -17,15 +12,15 @@ interface IRoute {
 
 export interface IPokemonDetailsProp {
     route: IRoute;
-    navigation: INavigation;
+    navigation: NavigationStackProp<{ userId: string }>;
 }
 
 export interface IHomeProps {
-    navigation: INavigation;
+    navigation: NavigationStackProp<{ userId: string }>;
 }
 
 export interface INextPokemonsProps {
-    navigation: INavigation;
+    navigation: NavigationStackProp<{ userId: string }>;
     item: IPokemon;
 }
 
